@@ -90,7 +90,7 @@ class sistemaV:
 
 def main():
     servicio_hospitalario = sistemaV()
-    # sistma=sistemaV()
+    # sistema=sistemaV()
     while True:
         menu=int(input('''\nIngrese una opción: 
                        \n1- Ingresar una mascota 
@@ -116,11 +116,18 @@ def main():
 
                 for i in range(0,nm):
                     nombre_medicamentos = input("Ingrese el nombre del medicamento: ")
-                    dosis =int(input("Ingrese la dosis: "))
-                    medicamento = Medicamento()
-                    medicamento.asignarNombre(nombre_medicamentos)
-                    medicamento.asignarDosis(dosis)
-                    lista_med.append(medicamento)
+                    while True:
+                        for d in lista_med:
+                            if d.verNombre()== nombre_medicamentos:
+                                print("este medicamento ya fue agregado")
+                            else: 
+                                break
+                    
+                dosis =int(input("Ingrese la dosis: "))
+                medicamento = Medicamento()
+                medicamento.asignarNombre(nombre_medicamentos)
+                medicamento.asignarDosis(dosis)
+                lista_med.append(medicamento)
 
                 mas= Mascota()
                 mas.asignarNombre(nombre)
